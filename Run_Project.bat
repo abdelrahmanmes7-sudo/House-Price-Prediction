@@ -1,0 +1,16 @@
+@echo off
+echo Starting House Price Prediction Project...
+
+echo Starting Backend API...
+start cmd /k "cd backend && ..\.venv\Scripts\python.exe -m uvicorn main:app --reload --port 8000"
+
+echo Starting Frontend UI...
+start cmd /k "cd frontend && npm run dev"
+
+echo Waiting for servers to start...
+timeout /t 5 /nobreak >nul
+
+echo Opening browser...
+start http://localhost:5173/
+
+echo Done! You can close this black window. The other two windows must remain open while you use the site.
